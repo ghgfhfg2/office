@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/basic.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="./css/datepicker.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/sass-common.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/content.css">
+  <script src="./js/jquery-2.1.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./js/jquery.easing.1.3.js"></script>
+  <script src="./js/datepicker.min.js"></script>
+  <script src="./js/datepicker.ko.js"></script>
+  <script src="./js/common.js"></script>
+  
+</head>
+<body>
+  <div id="wrapper">
+    <aside class="left-menu">
+      <div class="logo">
+        <img src="./img/logo.jpg" alt="">
+      </div>
+      <dl class="on">
+        <dt>신제품</dt>
+        <dd><a href="#">진행상황</a></dd>
+        <dd class="on"><a href="#">등록/관리</a></dd>
+      </dl>
+      <dl>
+        <dt>리뉴얼</dt>
+        <dd><a href="#">진행상황</a></dd>
+        <dd><a href="#">등록/관리</a></dd>
+      </dl>
+    </aside>
+    <section id="container">
+      <div class="header">
+        <div class="header-tit-box">
+          <h2>신제품</h2>
+          <p>신제품,라인업 출시(제품 정보, 패키지, 홍보, 입고등)에 관한 진행 상황을 확인하실 수 있습니다.</p>
+        </div>
+        <div class="search-box">
+          <div class="input-box">
+            <input type='text' id="date1" class="datepicker-here big" 
+            data-min-view="months"
+            data-view="months" data-date-format="yyyy-MM" />
+            <label for="date1"></label>
+          </div>
+          <div class="ml5 mr5">~</div>
+          <div class="input-box">
+            <input type='text' id="date2" class="datepicker-here big" 
+            data-min-view="months"
+            data-view="months" data-date-format="yyyy-MM" />
+            <label for="date2"></label>
+          </div>
+          <button type="button" class="btn-basic gray ml5" style="min-width: 62px;">조회</button>
+        </div>        
+        <div class="header-menu">
+          <ul>
+            <li><a href="#">고길동 과장(R&D)</a></li>
+            <li><a href="#">정보수정</a></li>
+            <li><a href="#">로그아웃</a></li>
+            <!-- 비로그인 <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li> -->
+          </ul>
+          <div class="print-info">
+            <a href="#" class="ic-print">페이지 인쇄</a>
+            <a href="#" class="ic-info">도움말</a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="prod-select-tab mb30">
+          <ul>
+            <li><a href="#" class="on">전체보기</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+            <li><a href="#">닭가슴살 볶음밥 7종</a></li>
+          </ul>
+        </div>
+        <div class="bd-box">
+          <div class="tit-box flex-box j-between">
+            <h3>진행 상황</h3>
+            <div class="prod-list-top-right">
+              <button type="button" class="ic-list-plus">
+                <span></span>
+              </button>
+              <button type="button" class="btn-basic green not-hover mr5"><span class="ic-exel">파일 다운로드</span></button>
+              <button type="button" class="btn-basic blue not-hover"><span class="ic-print">페이지 인쇄</span></button>
+            </div>
+          </div>
+          <table class="tbl-basic prod-tbl">
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col style="width: 120px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">제품명/출시일</th>
+                <th scope="col" colspan="5">R&D</th>
+                <th scope="col" colspan="4">디자인</th>
+                <th scope="col" colspan="2">물류</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <!-- 상품 진행 상황-->
+            <tbody>
+              <tr>
+                <td rowspan="5">5</td>
+                <td rowspan="5">
+                  <dl class="td-prod-list">
+                    <dt>닭가슴살볶음밥 7종</dt>
+                    <dd>닭가슴살 야채 볶음밥</dd>
+                    <dd>닭가슴살 새우 볶음밥</dd>
+                    <dd>닭가슴살 갈릭 볶음밥</dd>
+                    <dd>닭가슴살 곤드레 볶음밥</dd>
+                  </dl>
+                </td>
+                <td class="bg-green bg-gray has-memo btnMemoOpen">업체명</td>
+                <td colspan="2">와이앤비푸드</td>
+                <td class="bg-green bg-green btnMemoOpen">샘플진행</td>
+                <td>-</td><!-- 항목사용 && 체크사항 없을때 -->
+                <td class="bg-blue btnMemoOpen">제품명 설정</td>
+                <td>2020년 2월 20일(수)</td>
+                <td class="bg-blue btnMemoOpen">디자인 컨셉</td>
+                <td>2020년 2월 20일(수)</td>
+                <td class="bg-purple btnMemoOpen">포장지 입고</td>
+                <td>2020년 2월 20일(수)</td>
+                <td rowspan="3">
+                  <button type="button" class="btn-basic gray mb5">수정</button>
+                  <button type="button" class="btn-basic l-gray">삭제</button>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="5" class="bg-green btnMemoOpen">
+                  정보수령<br>
+                  2020년 2월 10일(월)
+                </td>
+                <td rowspan="3" class="bg-green2 btnMemoOpen">1매지</td>
+                <td rowspan="3">
+                  <ul>
+                    <li>표시사장</li>
+                    <li>세부포장재질</li>
+                  </ul>
+                </td>
+                <td rowspan="3" class="bg-green2 btnMemoOpen bg-gray">멀티팩</td>
+                <td rowspan="3" class="bg-gray">
+                  X
+                </td><!-- 항목미사용 일때 -->
+                <td class="bg-blue btnMemoOpen">제품 촬영</td>
+                <td>2020년 2월 10일(월)</td>
+                <td class="bg-blue btnMemoOpen">상세페이지</td>
+                <td>2020년 2월 10일(월)</td>
+                <td class="bg-purple btnMemoOpen">제품생산</td>
+                <td>2020년 2월 10일(월)</td>
+              </tr>
+              <tr>
+                <td class="bg-blue btnMemoOpen">촬영생픔 수령</td>
+                <td>2020년 2월 10일(월)</td>
+                <td class="bg-blue btnMemoOpen">홍보배너</td>
+                <td>2020년 2월 10일(월)</td>
+                <td class="bg-purple btnMemoOpen">미트리 입고</td>
+                <td>2020년 2월 10일(월)</td>
+              </tr>
+              <tr>
+                <td class="bg-blue btnMemoOpen">촬영업체</td>
+                <td>하오디자인</td>
+                <td class="bg-blue btnMemoOpen">패키지</td>
+                <td>2020년 2월 10일(월)</td>
+                <td class="bg-purple btnMemoOpen">물류입고</td>
+                <td>2020년 2월 10일(월)</td>
+                <td rowspan="2">
+                  <ul class="damdangja">
+                    <li>[R&D] 고길동</li>
+                    <li>[전략] 최아영/도혜은</li>
+                    <li>[물류] 김민욱</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="bg-green2 btnMemoOpen">카톤</td>
+                <td rowspan="2">
+                  <ul>
+                    <li>표시사장</li>
+                    <li class="unused">도면</li>
+                    <li class="unused">날인위치</li>
+                  </ul>
+                </td>
+                <td rowspan="2" class="bg-green2 btnMemoOpen">서류</td>
+                <td rowspan="2">
+                  <ul>
+                    <li>표시사장</li>
+                    <li>세부포장재질</li>
+                  </ul>
+                </td>
+                <td class="bg-blue btnMemoOpen">디자인업체</td>
+                <td>자체제작</td>
+                <td class="bg-blue btnMemoOpen">인쇄 데이터출고</td>
+                <td>2020년 3월 21일(수)</td>
+                <td rowspan="2" class="bg-purple btnMemoOpen">물류업체</td>
+                <td rowspan="2">
+                  <ul>
+                    <li>아워박스(평택)</li>
+                    <li>골든캐슬(김해)</li>
+                    <li>본사(학장동)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>신규</td>
+                <td class="fon_bold">2020년 3월 21일(수)</td>
+                <td class="bg-blue btnMemoOpen">인쇄업체</td>
+                <td>거성특수포장인쇄</td>
+                <td class="bg-blue btnMemoOpen">포장지 인쇄</td>
+                <td>2020년 3월 21일(수)</td>
+                <td><button class="btn-log" type="button">memo/log</button></td>
+              </tr>            
+            </tbody>  
+            <!-- 메모/로그 -->
+            <tbody class="memo-content-box">
+              <tr class="momo-log-tr">
+                <td colspan="7" class="td-memo">
+                  <h4 class="title">MEMO</h4>
+                  <div class="memo-box">
+                    <textarea class="memo-txt">* 식품유형이 햄(냉동식품)으로 변경되면서 표시사항 변경(포장지 소진배너 O) : 가열하여 섭취하는 냉동식품입니다. / 비살균 제품입니다. 
+                    </textarea>
+                    <button type="button" class="btn-basic gray">확인</button>
+                  </div>
+                </td>
+                <td colspan="7" class="td-log">
+                  <h4 class="title">LOG</h4>
+                  <div class="log-box">
+                    <ul class="log-list">
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                      <li>
+                        <span class="desc">[R&D]의 정보수령 > 1매지: 사용안함으로 설정하였습니다.</span>
+                        <span class="date">도우너(전략기획부) 2020/02/03 16:23</span>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <!-- //메모/로그 -->              
+            <!-- //상품 진행 상황-->            
+          </table>
+          <!-- 상품 진행 수정-->
+          <table class="tbl-basic prod-tbl">
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col style="width: 75px;">
+              <col>
+              <col style="width: 100px;">
+              <col>
+              <col style="width: 115px;">
+              <col>
+              <col style="width: 90px;">
+              <col>
+              <col style="width: 120px;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td rowspan="5">
+                  1
+                  <div class="flex-box j-center mt5">
+                    <input type="checkbox" id="allFinishCheck">
+                    <label for="allFinishCheck">완(전체)</label>
+                  </div>
+                </td>
+                <td rowspan="5">
+                  <div class="flex-box">
+                    <select name="" id="">
+                      <option value="">전체보기</option>
+                    </select>
+                    <input type="checkbox" id="check_1">
+                    <label for="check_1" class="ml5">완</label>
+                  </div>
+                  <textarea name="" id="" class="mt5" style="height: 115px;">
+                    
+                  </textarea>
+                </td>
+                <td class="bg-gray has-memo">업체명</td>
+                <td colspan="2">
+                  <div class="flex-box">
+                    <select name="" id="">
+                      <option value="">에스앤비푸드</option>
+                    </select>
+                    <input type="checkbox" id="check_2">
+                    <label for="check_2" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-gray">샘플진행</td>
+                <td>
+                  <div class="input-box">
+                    <input 
+                    type="text" id="modify_date_2" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_2"></label>
+                    <input type="checkbox" id="check_3">
+                    <label for="check_3" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-blue">제품명 설정</td>
+                <td>
+                  <div class="input-box">
+                    <input 
+                    type="text" id="modify_date_3" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_3"></label>
+                    <input type="checkbox" id="check_4">
+                    <label for="check_4" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-blue">디자인 컨셉</td>
+                <td>
+                  <div class="input-box">
+                    <input 
+                    type="text" id="modify_date_4" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_4"></label>
+                    <input type="checkbox" id="check_5">
+                    <label for="check_5" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-purple">포장지 입고</td>
+                <td>
+                  <div class="input-box">
+                    <input 
+                    type="text" id="modify_date_5" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_5"></label>
+                    <input type="checkbox" id="check_6">
+                    <label for="check_6" class="ml5">완</label>
+                  </div>
+                </td>
+                <td rowspan="2">
+                  <button type="button" class="btn-basic gray">확인</button>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="5" class="bg-green">
+                  정보수령<br>                  
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_7">
+                    <label for="check_7" class="ml5">완</label>
+                  </div>
+                </td>
+                <td rowspan="3" class="bg-green2">
+                  1매지
+                  <div class="flex-box d-col">
+                    <input type="checkbox" class="bg-green" id="check_8">
+                    <label for="check_8" class="mt10">사용</label>
+                    <input type="checkbox" id="check_9">
+                    <label for="check_9">완</label>
+                  </div>
+                </td>
+                <td rowspan="3">
+                  <ul>
+                    <li class="flex-box j-between">표시사항
+                      <input type="checkbox" class="bg-green" id="check_30">
+                      <label for="check_30"></label>
+                    </li>
+                    <li class="flex-box j-between">세부포장재질
+                      <input type="checkbox" class="bg-green" id="check_31">
+                      <label for="check_31"></label>
+                    </li>
+                    <li class="flex-box j-between">가공방/도면
+                      <input type="checkbox" class="bg-green" id="check_32">
+                      <label for="check_32"></label>
+                    </li>
+                    <li class="flex-box j-between">개봉구 위치
+                      <input type="checkbox" class="bg-green" id="check_33">
+                      <label for="check_33"></label>
+                    </li>
+                    <li class="flex-box j-between">날인 위치
+                      <input type="checkbox" class="bg-green" id="check_34">
+                      <label for="check_34"></label>
+                    </li>
+                  </ul>
+                </td>
+                <td rowspan="3" class="bg-green2">
+                  멀티팩
+                  <div class="flex-box d-col">
+                    <input type="checkbox" class="bg-green" id="check_10">
+                    <label for="check_10" class="mt10">사용</label>
+                    <input type="checkbox" id="check_11">
+                    <label for="check_11">완</label>
+                  </div>
+                </td>
+                <td rowspan="3">
+                  <ul>
+                    <li class="flex-box j-between">표시사항
+                      <input type="checkbox" class="bg-green" id="check_12">
+                      <label for="check_12"></label>
+                    </li>
+                    <li class="flex-box j-between">세부포장재질
+                      <input type="checkbox" class="bg-green" id="check_13">
+                      <label for="check_13"></label>
+                    </li>
+                    <li class="flex-box j-between">도면
+                      <input type="checkbox" class="bg-green" id="check_14">
+                      <label for="check_14"></label>
+                    </li>
+                    <li class="flex-box j-between">날인위치
+                      <input type="checkbox" class="bg-green" id="check_15">
+                      <label for="check_15"></label>
+                    </li>
+                  </ul>
+                </td>
+                <td class="bg-blue">제품 촬영</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_16">
+                    <label for="check_16" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-blue">상세페이지</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_17">
+                    <label for="check_17" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-purple">제품생산</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_18">
+                    <label for="check_18" class="ml5">완</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bg-blue">촬영생픔 수령</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_19">
+                    <label for="check_19" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-blue">홍보배너</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_20">
+                    <label for="check_20" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-purple">미트리 입고</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_21">
+                    <label for="check_21" class="ml5">완</label>
+                  </div>
+                </td>
+                <td rowspan="4">
+                  <ul class="damdangja">
+                    <li class="flex-box mb5">
+                      <span>[R&D]</span>
+                      <select name="" id="">
+                        <option value="">담당자1</option>
+                        <option value="">담당자2</option>
+                      </select>
+                    </li>
+                    <li class="flex-box mb5">
+                      <span>[전략]</span> 
+                      <select name="" id="">
+                        <option value="">담당자1</option>
+                        <option value="">담당자2</option>
+                      </select>
+                    </li>
+                    <li class="flex-box">
+                      <span>[물류]</span> 
+                      <select name="" id="">
+                        <option value="">담당자1</option>
+                        <option value="">담당자2</option>
+                      </select>
+                    </li>
+                  </ul>
+                  <div class="flex-box j-center mt10">
+                    <input type="checkbox" id="check_22">
+                    <label for="check_22" class="ml5">완</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="bg-blue">촬영업체</td>
+                <td>하오디자인</td>
+                <td class="bg-blue">패키지</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_22">
+                    <label for="check_22" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-purple">물류입고</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_23">
+                    <label for="check_23" class="ml5">완</label>
+                  </div>
+                </td>                
+              </tr>
+              <tr>
+                <td rowspan="2" class="bg-green2">카톤
+                  <div class="flex-box d-col">
+                    <input type="checkbox" class="bg-green" id="check_26">
+                    <label for="check_26" class="mt10">사용</label>
+                    <input type="checkbox" id="check_27">
+                    <label for="check_27">완</label>
+                  </div>
+                </td>
+                <td rowspan="2">
+                  <ul>
+                    <li class="flex-box j-between">표시사항
+                      <input type="checkbox" class="bg-green" id="check_35">
+                      <label for="check_35"></label>
+                    </li>
+                    <li class="flex-box j-between">도면
+                      <input type="checkbox" class="bg-green" id="check_36">
+                      <label for="check_36"></label>
+                    </li>
+                    <li class="flex-box j-between">날인 위치
+                      <input type="checkbox" class="bg-green" id="check_37">
+                      <label for="check_37"></label>
+                    </li>
+                  </ul>
+                </td>
+                <td rowspan="2" class="bg-green2">서류
+                  <div class="flex-box d-col">
+                    <input type="checkbox" class="bg-green" id="check_28">
+                    <label for="check_28" class="mt10">사용</label>
+                    <input type="checkbox" id="check_29">
+                    <label for="check_29">완</label>
+                  </div>
+                </td>
+                <td rowspan="2">
+                  <ul>
+                    <li class="flex-box j-between">품목제조보고서
+                      <input type="checkbox" class="bg-green" id="check_38">
+                      <label for="check_38"></label>
+                    </li>
+                    <li class="flex-box j-between">HACCP인증서
+                      <input type="checkbox" class="bg-green" id="check_39">
+                      <label for="check_39"></label>
+                    </li>
+                    <li class="flex-box j-between">영양성분성적서
+                      <input type="checkbox" class="bg-green" id="check_40">
+                      <label for="check_40"></label>
+                    </li>
+                  </ul>
+                </td>
+                <td class="bg-blue">디자인업체</td>
+                <td>자체제작</td>
+                <td class="bg-blue">인쇄 데이터출고</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_24">
+                    <label for="check_24" class="ml5">완</label>
+                  </div>
+                </td>
+                <td rowspan="2" class="bg-purple">물류업체</td>
+                <td rowspan="2">
+                  <div class="flex-box">
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <input type="checkbox" class="col-checkbox" id="check_41">
+                    <label for="check_41" class="ml5">완</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="" id="">
+                    <option value="">신규</option>
+                    <option value="">라인업</option>
+                  </select>
+                </td>
+                <td>
+                  <div class="input-box">
+                    <input 
+                    type="text" id="modify_date_1" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_1"></label>
+                    <input type="checkbox" id="check_0">
+                    <label for="check_0" class="ml5">완</label>
+                  </div>
+                </td>
+                <td class="bg-blue">인쇄업체</td>
+                <td>거성특수포장인쇄</td>
+                <td class="bg-blue">포장지 인쇄</td>
+                <td>
+                  <div class="input-box mt10">
+                    <input 
+                    type="text" id="modify_date_6" class="datepicker-here" data-date-format="yyyy/mm/dd"
+                    data-position='top left'
+                    >
+                    <label for="modify_date_6"></label>
+                    <input type="checkbox" id="check_25">
+                    <label for="check_25" class="ml5">완</label>
+                  </div>
+                </td>
+              </tr>            
+            </tbody>  
+          </table>
+          <!-- //상품 진행 수정-->
+        </div>
+        <!-- 페이지 -->
+        <div class="com-page-box">
+          <button type="button" class="prev"></button>
+          <button type="button" class="on">1</button>
+          <button type="button">2</button>
+          <button type="button">3</button>
+          <button type="button">4</button>
+          <button type="button">5</button>
+          <button type="button" class="next"></button>
+        </div>
+        <!-- //페이지 -->
+      </div>
+    </section>
+  </div>
+  <!-- 메모 팝업 -->
+  <div id="memoPopup">
+    <div class="tit">
+      <span>분류</span>
+      <button type="button" class="btn-close" onclick="btnMemoClose()"></button>
+    </div>
+    <div class="con-box">
+      <textarea name="" id="" ></textarea>
+      <div class="btn-box">
+        <button type="button" class="btn-basic gray mr5">수정</button>
+        <button type="button" class="btn-basic" onclick="btnMemoClose()">닫기</button>
+      </div>
+    </div>
+  </div>
+  <!-- //메모 팝업 -->
+  <script>
+    /* 날짜선택 */
+    $('.datepicker-here').datepicker({
+      language: 'ko',
+      autoClose: true     
+    });
+
+    /* 메모팝업 */
+    var btnMemoOpen = $('.btnMemoOpen');
+    var memoPopup = document.querySelector('#memoPopup');
+    btnMemoOpen.on('click', function(e){
+      var posX = e.clientX;
+      var posY = e.clientY;
+      memoPopup.style.opacity = 1;
+      memoPopup.style.left = posX + 'px';
+      memoPopup.style.top = posY + 'px';
+    })
+    function btnMemoClose(){
+      memoPopup.style.opacity = 0;
+      memoPopup.style.left = -9999 + 'px';
+      memoPopup.style.top = -9999 + 'px';
+    }
+  </script>
+</body>
+</html>

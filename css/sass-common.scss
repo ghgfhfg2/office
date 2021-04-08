@@ -1,0 +1,124 @@
+$mobile-wid : 768px;
+$p-color: #1891d8;  //primary color
+$fon-size: 12px; // basic font size
+$fon-color:#666; //basic font color
+$bd-color:#e0e0e0; //border color
+$focus-color:#53b1e7; //focus color
+
+$gray:#616161;
+$l-gray:#ebebeb;
+$black:#111;
+$blue:#5182df;
+$red:#ff0103;
+$green:#20a264;
+$check:#0075ff;
+
+.com-tab-box .tab-content{display: none;}
+
+@mixin mobile {
+    @media (max-width: #{$mobile-wid}) {
+      @content;
+    }
+  }
+
+@mixin flex($j:flex-start,$a:center,$d:row
+) {
+    display: flex;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $d;
+}
+
+@mixin after($width,$height){
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: $width;
+    height: $height;
+}
+@mixin before($width,$height){
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: $width;
+    height: $height;
+}
+
+@mixin font(
+    $s:$fon-size,
+    $w:normal,
+    $c:$fon-color
+) {
+    font-size: $s;font-weight: $w;color: $c;
+}
+
+@mixin h2 {
+    font-size: 30px;margin-bottom: 50px;line-height: 1;color: #000; text-align: center;
+}
+    
+@mixin lastMr0($margin) {
+    margin-right: $margin;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+@mixin lastMb0($margin) {
+    margin-bottom: $margin;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+@mixin bdTop($w:1px,$t:solid,$c:$bd-color) {
+    border-top : $w $t $c;    
+}
+@mixin bdBot($w:1px,$t:solid,$c:$bd-color) {
+    border-bottom : $w $t $c;    
+}
+@mixin bdLeft($w:1px,$t:solid,$c:$bd-color) {
+    border-left : $w $t $c;    
+}
+@mixin bdRight($w:1px,$t:solid,$c:$bd-color) {
+    border-right : $w $t $c;    
+}
+
+@mixin round($s) {
+    width: $s;height: $s;border-radius: 50%;
+}
+
+
+/* 인풋 */
+@mixin input-text($h:23px,$bd:1px) {
+    height: $h;
+    padding: 0 7px;
+    border: 1px solid #d5d5d5;border-width: $bd;
+    background-color: #fff;
+    outline: none;
+    &::placeholder{color: #888;}
+    &:focus{box-shadow: 0px 0px 0.2rem 0px rgba(0,0,0,0.25);border-color: $focus-color;}
+}
+@mixin input-check($w:1rem,$c:$p-color,$bd:1px) {
+        position: absolute;
+        height: 0;width:0;
+        & + label{
+            display: flex;align-items:center;
+            &::before{
+                content: "";
+                display: inline-block;
+                width: $w;height: $w;
+                border:1px solid #767676;
+                border-radius: 0.2rem;
+                border-width: $bd;
+                background-color: #fff;
+                margin-right: 0.3rem;
+            }
+    }
+    &:checked + label::before{
+        background: $c url(../img/icon_check_on.svg) 2px 3px no-repeat;
+        background-size: 8px auto;
+        border-color: $p-color;
+    }
+}
+
+
+
+
