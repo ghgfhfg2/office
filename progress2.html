@@ -232,7 +232,10 @@
                 <td>자체제작</td>
                 <td class="bg-blue btnMemoOpen">인쇄 데이터출고</td>
                 <td>2020년 3월 21일(수)</td>
-                <td rowspan="2" class="bg-purple btnMemoOpen">물류업체</td>
+                <td rowspan="2" class="bg-purple btnMemoOpen">
+                  물류업체<br>
+                  <button type="button" class="btn-jaego btnJaegoOpen"><span>재고확인</span></button>
+                </td>
                 <td rowspan="2">
                   <ul>
                     <li>아워박스(평택)</li>
@@ -768,6 +771,145 @@
     </div>
   </div>
   <!-- //메모 팝업 -->
+
+  <!-- 재고 팝업 -->
+  <div id="jaegoPopup" class="jaegoPopup">
+    <div class="tit">
+      <span>재고확인</span>
+      <button type="button" class="btn-close" onclick="btnJaegoClose()"></button>
+    </div>
+    <div class="con-box">
+      <span class="date">
+        기준일: 2020년 3월 10일(수)
+      </span>
+      <dl>
+        <dt>현재 재고</dt>
+        <dd>30,000ea</dd>
+      </dl>
+      <dl>
+        <dt>아워박스(동탄)</dt>
+        <dd>10,000ea</dd>
+      </dl>
+      <dl>
+        <dt>아워박스(평택)</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>골든캐슬(광주)</dt>
+        <dd>10,000ea</dd>
+      </dl>
+      <dl>
+        <dt>본사(학장동)</dt>
+        <dd>5,000ea</dd>
+      </dl>
+      <dl>
+        <dt>생산 공장</dt>
+        <dd>5,000ea</dd>
+      </dl>
+      <dl>
+        <dt>주 출고수</dt>
+        <dd>200ea</dd>
+      </dl>
+      <dl>
+        <dt>회전 주</dt>
+        <dd>3주</dd>
+      </dl>
+      <dl>
+        <dt>소진시기</dt>
+        <dd>6월 2일 ~ 6월 3일</dd>
+      </dl>
+      <dl>
+        <dt>유통기한</dt>
+        <dd>2021년 6월 1일(금)</dd>
+      </dl>
+      <dl>
+        <dt>포장재 재고</dt>
+        <dd>19,520ea</dd>
+      </dl>
+      <dl>
+        <dt>MOQ</dt>
+        <dd>3롤(40,000ea)</dd>
+      </dl>
+      <div class="btn-box">
+        <button type="button" class="btn-basic gray mr5 btnJaegoOpen2">수정</button>
+        <button type="button" class="btn-basic" onclick="btnJaegoClose()">닫기</button>
+      </div>
+    </div>
+  </div>
+  <!-- //재고 팝업 -->
+
+  <!-- 재고수정 팝업 -->
+  <div id="jaegoPopup2" class="jaegoPopup">
+    <div class="tit">
+      <span>재고확인</span>
+      <button type="button" class="btn-close" onclick="btnJaegoClose2()"></button>
+    </div>
+    <div class="con-box">
+      <span class="date flex-box">
+        <span class="mr5">기준일: </span> 
+        <div class="input-box">
+          <input type="text" id="modify_date_17" class="datepicker-here" data-date-format="yyyy/mm/dd" data-position="top left">
+          <label for="modify_date_17"></label>
+        </div>
+      </span>
+      <dl>
+        <dt>현재 재고</dt>
+        <dd>
+          <input type="text">
+        </dd>
+      </dl>
+      <dl>
+        <dt>아워박스(동탄)</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>아워박스(평택)</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>골든캐슬(광주)</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>본사(학장동)</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>생산 공장</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>주 출고수</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>회전 주</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>소진시기</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>유통기한</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>포장재 재고</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <dl>
+        <dt>MOQ</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <div class="btn-box">
+        <button type="button" class="btn-basic gray mr5">확인</button>
+        <button type="button" class="btn-basic" onclick="btnJaegoClose2()">닫기</button>
+      </div>
+    </div>
+  </div>
+  <!-- //재고수정 팝업 -->
+
   <script>
     /* 날짜선택 */
     $('.datepicker-here').datepicker({
@@ -779,17 +921,54 @@
     var btnMemoOpen = $('.btnMemoOpen');
     var memoPopup = document.querySelector('#memoPopup');
     btnMemoOpen.on('click', function(e){
+      if(!e.target.closest('button')){
       var posX = e.clientX;
       var posY = e.clientY;
       memoPopup.style.opacity = 1;
       memoPopup.style.left = posX + 'px';
       memoPopup.style.top = posY + 'px';
+      }
     })
     function btnMemoClose(){
       memoPopup.style.opacity = 0;
       memoPopup.style.left = -9999 + 'px';
       memoPopup.style.top = -9999 + 'px';
     }
+
+    /* 재고팝업 */
+    var btnJaegoOpen = $('.btnJaegoOpen');
+    var jaegoPopup = document.querySelector('#jaegoPopup');
+    btnJaegoOpen.on('click', function(e){
+      var posX = e.clientX;
+      var posY = e.clientY;
+      jaegoPopup.style.opacity = 1;
+      jaegoPopup.style.left = posX + 'px';
+      jaegoPopup.style.top = posY + 'px';
+    });
+    function btnJaegoClose(){
+      jaegoPopup.style.opacity = 0;
+      jaegoPopup.style.left = -9999 + 'px';
+      jaegoPopup.style.top = -9999 + 'px';
+    }
+
+    /* 재고수정 팝업 */
+    var btnJaegoOpen2 = $('.btnJaegoOpen2');
+    var jaegoPopup2 = document.querySelector('#jaegoPopup2');
+    btnJaegoOpen2.on('click', function(){
+      var posX = jaegoPopup.style.left;
+      var posY = jaegoPopup.style.top;
+      console.log(posX)
+      jaegoPopup2.style.opacity = 1;
+      jaegoPopup2.style.left = posX
+      jaegoPopup2.style.top = posY
+    });
+    function btnJaegoClose2(){
+      btnJaegoClose();
+      jaegoPopup2.style.opacity = 0;
+      jaegoPopup2.style.left = -9999 + 'px';
+      jaegoPopup2.style.top = -9999 + 'px';
+    }
+
   </script>
 </body>
 </html>

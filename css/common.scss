@@ -273,6 +273,7 @@ p.line-30 {
   color: $black;
   background-color: #fff;
   transition: all 0.2s;  
+  position: relative;
   &.gray{
     background-color: $gray;
     color: #fff;

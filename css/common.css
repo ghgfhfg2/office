@@ -333,7 +333,8 @@ p.line-30 {
   padding: 6px 10px;
   color: #111;
   background-color: #fff;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  position: relative; }
 
 .btn-basic.gray {
   background-color: #616161;

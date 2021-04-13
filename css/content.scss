@@ -79,12 +79,9 @@ display: flex;flex-direction: column;min-height: 100vh;
 } 
 
 .prod-list-top-right{
+  @include flex();
   .ic-list-plus{width: 32px;height: 32px;position: relative;margin-right: 19px;
-    border-radius: 3px;border: 1px solid #d9d9d9;
-    &::after{
-      @include after($width:1px,$height:15px);
-      right: -11px;top:8px;background-color: $bd-color;
-    }
+    border-radius: 3px;border: 1px solid #d9d9d9;    
     span{position: absolute;width: 17px;height: 17px;
       left: 50%;top:50%;margin-left: -8px;margin-top: -8px;
       &::before{
@@ -97,6 +94,12 @@ display: flex;flex-direction: column;min-height: 100vh;
         left: 50%;top:0;margin-left: -1px;
         background-color: #b8b8b8;
       }
+    }
+  }
+  .after-kan{
+    &::after{
+      @include after($width:1px,$height:15px);
+      right: -11px;top:8px;background-color: $bd-color;
     }
   }
 }
@@ -160,6 +163,26 @@ display: flex;flex-direction: column;min-height: 100vh;
         &.on{color: #fff;font-weight: 500;background-color: $blue;}
       }
     }
+  }
+}
+
+.form-list{
+  margin-left: 10px;
+  @include flex();
+  button{
+    @include lastMr0(6px);
+  }
+  .ic-basic{
+    width: 23px;height: 20px;background: url(../img/ic-basic.png) no-repeat;
+    &.on{background-image: url(../img/ic-basic_on.png);}
+  }
+  .ic-history{
+    width: 25px;height: 19px;background: url(../img/ic-history.png) no-repeat;
+    &.on{background-image: url(../img/ic-history_on.png);}
+  }
+  .ic-calendar{
+    width: 21px;height: 23px;background: url(../img/ic-calendar.png) no-repeat;
+    &.on{background-image: url(../img/ic-calendar_on.png);}
   }
 }
 
@@ -253,6 +276,19 @@ display: flex;flex-direction: column;min-height: 100vh;
   }
 }
 
+.btn-jaego{
+  width: 70px;height: 22px;position: relative;
+  color: #fff;background-color: #ab2e96;
+  border:1px solid #82106f;border-radius: 3px;
+  font-size: 11px;
+  display: inline-block;
+  margin-top: 5px;
+  z-index: 10;
+  span{
+    display: inline-block;padding-right: 16px;
+    background: url(../img/ic-jaego.png) right center no-repeat;
+  }
+}
 
 input[type="checkbox"].col-checkbox + label{
   flex-direction: column;justify-content: center;
@@ -298,6 +334,64 @@ input[type="checkbox"].col-checkbox + label{
   .con-box{
     padding:7px;
     textarea{border-radius: 0;min-height: 77px;}
+    .btn-box{
+      @include flex($j:center);
+      margin-top: 10px;
+    }
+  }
+
+}
+
+.jaegoPopup{
+  width:265px;position: fixed;
+  opacity: 0;left: -9999px;top:-9999px;
+  transition: opacity 0.2s;
+  transform: translate(-50%,-50%);
+  background-color: #fff;z-index: 10;
+  border:1px solid #82106f;
+  .tit{
+    padding:0 13px;background: #82106f;
+    width:100%;height:40px;
+    @include flex($j:space-between);
+    span{
+      display: inline-block;padding-right: 16px;color: #fff;
+      background: url(../img/ic-jaego.png) right center no-repeat;
+    }
+    .btn-close{
+      display: inline-block;
+      position: absolute;
+      right: 8px;top:10px;
+      width: 20px;height:20px;
+      &::before{
+        @include before($width:1px,$height:18px);
+        background-color: #fff;
+        transform: rotate(45deg);
+        right: 10px;top:2px;
+      }
+      &::after{
+        @include after($width:1px,$height:18px);
+        background-color: #fff;
+        transform: rotate(-45deg);
+        right: 10px;top:2px;
+      }
+    }
+  }
+  .con-box{
+    padding:7px;font-size: 12px;
+    .date{display: block;border-bottom: 2px solid #82106f;text-align: right;padding-bottom: 5px;
+      &.flex-box{
+        @include flex($j:flex-end)
+      }
+    }
+    dl{
+      height: 24px;
+      @include flex($j:space-between);
+      border-bottom: 1px solid #82106f;
+      dt,dd{flex: 1;text-align: center;width: 50%;}
+      input[type=text]{
+        height: 18px;font-size: 11px;width: 100%;
+      }
+    }
     .btn-box{
       @include flex($j:center);
       margin-top: 10px;
