@@ -342,6 +342,52 @@ input[type="checkbox"].col-checkbox + label{
 
 }
 
+#listPopup{
+  box-shadow: 0 0 5px 0px rgba(0,0,0,0.25);
+  width:265px;height:175px;position: fixed;
+  opacity: 0;left: -9999px;top:-9999px;
+  transition: opacity 0.2s;
+  transform: translate(-50%,-50%);
+  background-color: #fff;z-index: 10;
+  .tit{
+    padding:0 13px;border-bottom: 1px solid $bd-color;
+    width:100%;height:40px;padding-top:5px;
+    @include flex($j:space-between);
+    .btn-close{
+      display: inline-block;
+      position: absolute;
+      right: 8px;top:10px;
+      width: 20px;height:20px;
+      &::before{
+        @include before($width:1px,$height:18px);
+        background-color: #8c8c8c;
+        transform: rotate(45deg);
+        right: 10px;top:2px;
+      }
+      &::after{
+        @include after($width:1px,$height:18px);
+        background-color: #8c8c8c;
+        transform: rotate(-45deg);
+        right: 10px;top:2px;
+      }
+    }
+  }
+  .con-box{
+    .day-work-list{
+      li{
+        @include lastMb0(10px)
+      }
+    }
+    padding: 15px;font-size:12px;
+    textarea{border-radius: 0;min-height: 77px;}
+    .btn-box{
+      @include flex($j:center);
+      margin-top: 10px;
+    }
+  }
+
+}
+
 .jaegoPopup{
   width:265px;position: fixed;
   opacity: 0;left: -9999px;top:-9999px;
@@ -398,4 +444,129 @@ input[type="checkbox"].col-checkbox + label{
     }
   }
 
+}
+
+$cal-red:#ec0e0d;
+$cal-green:#5bb40c;
+$cal-blue:#2878b7;
+$cal-purple:#be60ec;
+.calendar-sort-tab{
+  margin: 25px 0;position: relative;
+  select{
+    position: absolute;
+    right: 15px;top:50%;transform: translateY(-50%);
+  }
+  ul{
+    @include flex($j:center);
+    li{
+      position: relative;
+      &::before{
+        @include before($width:9px,$height:9px);
+        left:0;top:50%;margin-top: -4.5px;
+      }
+      font-weight: 500;font-size: 12px;cursor: pointer;
+      margin:0 16px;padding-left:15px;
+      &.col-1{
+        color:$cal-red;
+        &::before{background-color: $cal-red;}
+      }
+      &.col-2{
+        color:$cal-green;
+        &::before{background-color: $cal-green;}
+      }
+      &.col-3{
+        color:$cal-blue;
+        &::before{background-color: $cal-blue;}
+      }
+      &.col-4{
+        color:$cal-purple;
+        &::before{background-color: $cal-purple;}
+      }
+      &.off{
+        color:#999;
+        &::before{background-color: #999;}
+      }
+    }
+  }
+}
+.calendar-wrapper{
+  padding: 0 15px;
+  @include flex();
+}
+.calendar-box{
+  font-size: 12px;
+  width: calc(50% - 7px);margin-right: 14px;
+  margin-bottom: 50px;
+  &:nth-child(2n+2){margin-right: 0;}
+  h3{display: block;text-align: center;font-size: 16px;margin-bottom: 5px;}
+  .calendar{
+    .box{width: 14.28%;
+      border:1px solid $bd-color;
+      margin-left: -1px;margin-top: -1px;
+      height: 120px;
+      padding: 8px 5px;position: relative;
+      .day{
+        position: absolute;left: 7px;top:9px;
+        &.prev{color: #999 !important;}
+      }
+      &:nth-child(7n+1){
+        .day{color: $cal-red;}
+      }      
+    }
+    .week{
+      margin-left: 1px;margin-top: 1px;
+      @include flex();
+      flex-wrap: wrap;
+      &.tit{
+        .box{
+          padding:0;
+          height: 30px;line-height: 30px;text-align: center;
+          background-color: #f5f6fa;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+ul.day-work-list{
+  @include flex($d:column,$a:flex-start);
+  &.cut{
+    height: 100px;padding-top:20px;
+    justify-content: flex-end;
+    display:-webkit-box; 
+    word-wrap:break-word; 
+    -webkit-line-clamp:5; 
+    -webkit-box-orient:vertical; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
+  }
+  li{
+    margin-bottom: 4px;font-weight: 300;
+    p{position: relative;padding-left: 7px;line-height: 1.2;}
+    p::before{
+      @include before($width:2px,$height:2px);
+      left: 0;top:7px;
+    }
+    &.col-1{
+      color:$cal-red;font-weight:400;
+      p::before{background-color: $cal-red;}
+    }
+    &.col-2{
+      color:$cal-green;
+      p::before{background-color: $cal-green;}
+    }
+    &.col-3{
+      color:$cal-blue;
+      p::before{background-color: $cal-blue;}
+    }
+    &.col-4{
+      color:$cal-purple;
+      p::before{background-color: $cal-purple;}
+    }
+    &.off{
+      color:#999;
+      ::before{background-color: #999;}
+    }
+  }
 }
